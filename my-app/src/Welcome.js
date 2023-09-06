@@ -5,6 +5,10 @@ export class Welcome extends React.Component {
       <div>
         <p>Welcome {this.props.name}!</p>
         <p>Your age is {this.props.age}</p>
+        <p>
+          Semplicemente dovremmo inserire le parentesi graffe e all'interno
+          inserire la jsx expression
+        </p>
       </div>
     );
   }
