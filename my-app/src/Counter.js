@@ -4,8 +4,7 @@ export class Counter extends React.Component {
   state = {
     count: this.props.initialValue,
   };
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     setInterval(() => {
       this.setState((state) => {
         return { count: state.count + this.props.incrementCount };
@@ -13,9 +12,15 @@ export class Counter extends React.Component {
     }, this.props.incrementBy);
   }
   render() {
-    return <CounterDisplay count={this.state.count} />;
+    return (
+      <div>
+        <CounterDisplay count={this.state.count} />
+        <p>Il constructor non serve con il metodo componentDidMount</p>
+      </div>
+    );
   }
 }
+
 Counter.defaultProps = {
   initialValue: 0,
   incrementBy: 1000,
