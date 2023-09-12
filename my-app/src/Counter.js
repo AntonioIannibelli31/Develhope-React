@@ -15,8 +15,3 @@ export class Counter extends React.Component {
     return <h1>Counter: {this.state.count}</h1>;
   }
 }
-Counter.defaultProps = {
-  initialValue: 0,
-  incrementBy: 1000,
-  incrementCount: 1,
-};
