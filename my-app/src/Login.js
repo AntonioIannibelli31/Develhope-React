@@ -9,18 +9,30 @@ export class Login extends React.Component {
       [event.target.name]: event.target.value,
     });
   };
+  handleResetInputs = () => {
+    this.setState({
+      username: "",
+      password: "",
+    });
+  };
   render() {
     return (
       <div>
-        <input type="text" name="username" onChange={this.handleInputs}></input>
+        <input
+          type="text"
+          name="username"
+          onChange={this.handleInputs}
+          value={this.state.username}
+        ></input>
         <input
           type="password"
           name="password"
+          value={this.state.password}
           onChange={this.handleInputs}
         ></input>
         <button
           disabled={
-            this.state.username === "" && this.state.password === ""
+            this.state.username === "" || this.state.password === ""
               ? true
               : false
           }
@@ -28,6 +40,7 @@ export class Login extends React.Component {
         >
           Login
         </button>
+        <button onClick={this.handleResetInputs}>Reset</button>
       </div>
     );
   }
