@@ -6,24 +6,38 @@ export class ToDoList extends React.Component {
       "Do react exercises ",
       "do carreer and placement",
     ],
+    newItems: "",
   };
-  addToDo = (event) => {};
-  newTodo = (event) => {
-    let val = event.target.value;
-    this.setState((state) => {
-      return {
-        items: state.items + val,
-      };
+  newToDo = (event) => {
+    const name = event.target.name;
+    const val = event.target.value;
+    this.setState({
+      [name]: val,
+    });
+  };
+  pushToDo = () => {
+    const items = this.state.items;
+    const newItems = this.state.newItems;
+
+    items.push(newItems);
+    this.setState({
+      items: this.state.items,
     });
   };
   render() {
-    let arr = this.state.items;
-    let mapArr = arr.map((todo) => <li>{todo}</li>);
     return (
       <div>
-        <ul>{mapArr}</ul>
-        <input type="text" onChange={this.newTodo}></input>
-        <button onClick={this.addToDo}>Add to do</button>
+        <ul>
+          {this.state.items.map((todo, i) => (
+            <li key={todo + i}>{todo}</li>
+          ))}
+        </ul>
+        <input
+          name="newItems"
+          onChange={this.newToDo}
+          value={this.state.newItems}
+        ></input>
+        <button onClick={this.pushToDo}>Add to do</button>
       </div>
     );
   }
