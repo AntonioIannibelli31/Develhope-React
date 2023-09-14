@@ -20,7 +20,7 @@ export class Login extends React.Component {
         ></input>
         <button
           disabled={
-            this.state.username === "" && this.state.password === ""
+            this.state.username === "" || this.state.password === ""
               ? true
               : false
           }
