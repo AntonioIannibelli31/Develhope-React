@@ -31,18 +31,23 @@ export class ToDoList extends React.Component {
     });
   };
   removeToDo = (event) => {
-    console.log(event);
-    // this.state.items.slice(event.target);
-    // this.setState({});
+    const i = event.target.closest("li").index;
+    const slice = this.state.items.slice();
+    slice.splice(i, 1);
+    this.setState({
+      items: slice,
+    });
   };
   render() {
     return (
       <div>
         <ul>
-          {this.state.items.map((todo) => (
+          {this.state.items.map((todo, index) => (
             <div>
-              <li>{todo}</li>
-              <button onClick={this.removeToDo}>Remove</button>
+              <li key={index}>
+                {todo}
+                <button onClick={this.removeToDo}>Remove</button>
+              </li>
             </div>
           ))}
         </ul>
