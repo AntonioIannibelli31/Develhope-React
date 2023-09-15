@@ -30,12 +30,20 @@ export class ToDoList extends React.Component {
       items: [],
     });
   };
+  removeToDo = (event) => {
+    console.log(event);
+    // this.state.items.slice(event.target);
+    // this.setState({});
+  };
   render() {
     return (
       <div>
         <ul>
-          {this.state.items.map((todo, i) => (
-            <li key={todo + i}>{todo}</li>
+          {this.state.items.map((todo) => (
+            <div>
+              <li>{todo}</li>
+              <button onClick={this.removeToDo}>Remove</button>
+            </div>
           ))}
         </ul>
         <input
