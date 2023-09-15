@@ -1,8 +1,5 @@
 import React from "react";
-import { createRef } from "react";
 export class Login extends React.Component {
-  newRef = createRef();
-
   handleForm = (event) => {
     event.preventDefault();
   };
@@ -11,7 +8,7 @@ export class Login extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleForm} ref={this.newRef}>
+      <form onSubmit={this.handleForm}>
         <input
           name="username"
           ref={(input) => {
