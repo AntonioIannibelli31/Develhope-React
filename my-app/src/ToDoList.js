@@ -25,6 +25,11 @@ export class ToDoList extends React.Component {
       newItems: "",
     });
   };
+  clearArray = () => {
+    this.setState({
+      items: [],
+    });
+  };
   render() {
     return (
       <div>
@@ -39,6 +44,7 @@ export class ToDoList extends React.Component {
           value={this.state.newItems}
         ></input>
         <button onClick={this.pushToDo}>Add to do</button>
+        <button onClick={this.clearArray}>Reset</button>
       </div>
     );
   }
