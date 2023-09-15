@@ -22,6 +22,7 @@ export class ToDoList extends React.Component {
     items.push(newItems);
     this.setState({
       items: this.state.items,
+      newItems: "",
     });
   };
   render() {
