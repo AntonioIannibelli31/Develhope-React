@@ -1,26 +1,20 @@
 import React from "react";
 export class Login extends React.Component {
-  state = {
-    disabled: true,
-  };
-
   handleForm = (event) => {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
+    console.log(!username, !password);
     this.setState({
-      disabled: !username || !password,
+      disabled:
+        !this.usernameRef.current.value || !this.passwordRef.current.value,
     });
   };
   render() {
     return (
       <form onSubmit={this.handleForm}>
-        <input name="username" onChange={this.handleForm}></input>
-        <input
-          name="password"
-          type="password"
-          onChange={this.handleForm}
-        ></input>
+        <input name="username"></input>
+        <input name="password" type="password"></input>
         <button
           type="submit"
           onClick={this.props.onLogin}
