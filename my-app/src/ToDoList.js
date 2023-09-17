@@ -30,8 +30,8 @@ export class ToDoList extends React.Component {
       items: [],
     });
   };
-  removeToDo = (event) => {
-    const i = event.target.closest("li").index;
+  removeToDo = () => {
+    const i = this.state.items.indexOf("li");
     const slice = this.state.items.slice();
     slice.splice(i, 1);
     this.setState({
@@ -41,16 +41,7 @@ export class ToDoList extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          {this.state.items.map((todo, index) => (
-            <div>
-              <li key={index}>
-                {todo}
-                <button onClick={this.removeToDo}>Remove</button>
-              </li>
-            </div>
-          ))}
-        </ul>
+        {this.props.render(this.state.items, this.removeToDo)}
         <input
           name="newItems"
           onChange={this.newToDo}
