@@ -1,13 +1,15 @@
 import React from "react";
 export class Login extends React.Component {
+  state = {
+    username: "",
+    password: "",
+  };
   handleForm = (event) => {
     event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    console.log(!username, !password);
+    console.log(event.target.username.value.length);
     this.setState({
-      disabled:
-        !this.usernameRef.current.value || !this.passwordRef.current.value,
+      [event.target.username.name]: event.target.username.value,
+      [event.target.password.name]: event.target.password.value,
     });
   };
   render() {
@@ -18,7 +20,11 @@ export class Login extends React.Component {
         <button
           type="submit"
           onClick={this.props.onLogin}
-          disabled={this.state.disabled}
+          disabled={
+            this.state.username.length > 1 && this.state.password.length > 1
+              ? false
+              : true
+          }
         >
           Login
         </button>
