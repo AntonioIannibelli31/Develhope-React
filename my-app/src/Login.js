@@ -1,34 +1,51 @@
-import React from "react";
-export class Login extends React.Component {
-  state = {
+import React, { useState } from "react";
+export function Login() {
+  const [login, setLogin] = useState({
     username: "",
     password: "",
-  };
-  handleInputs = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
+    remember: false,
+  });
+  function handleInputs(event) {
+    const { name, value, checked, type } = event.target;
+    setLogin((login) => {
+      return {
+        ...login,
+        [name]: type === "checkbox" ? checked : value,
+      };
     });
-  };
-  render() {
-    return (
-      <div>
-        <input type="text" name="username" onChange={this.handleInputs}></input>
-        <input
-          type="password"
-          name="password"
-          onChange={this.handleInputs}
-        ></input>
-        <button
-          disabled={
-            this.state.username === "" || this.state.password === ""
-              ? true
-              : false
-          }
-          onClick={this.props.onLogin}
-        >
-          Login
-        </button>
-      </div>
-    );
   }
+  return (
+    <div>
+      <input
+        value={login.username}
+        type="text"
+        name="username"
+        onChange={handleInputs}
+      ></input>
+
+      <input
+        value={login.password}
+        type="password"
+        name="password"
+        onChange={handleInputs}
+      ></input>
+      <input
+        value={login.remember}
+        type="checkbox"
+        name="remember"
+        onChange={handleInputs}
+      ></input>
+      <button
+        disabled={
+          login.username === "" ||
+          login.password === "" ||
+          login.remember === false
+            ? true
+            : false
+        }
+      >
+        Login
+      </button>
+    </div>
+  );
 }

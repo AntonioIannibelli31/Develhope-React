@@ -4,11 +4,7 @@ export class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Login
-          onLogin={() => {
-            console.log("username and password are correct");
-          }}
-        />
+        <Login />
       </div>
     );
   }
