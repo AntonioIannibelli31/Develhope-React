@@ -1,17 +1,16 @@
-import React from "react";
-export class Counter extends React.Component {
-  state = {
-    count: 0,
-  };
-  constructor(props) {
-    super(props);
-    setInterval(() => {
-      this.setState((state) => {
-        return { count: state.count + 1 };
-      });
+import React, { useEffect, useState } from "react";
+export function Counter() {
+  const [counter, setCounter] = useState(0);
+  useEffect(() => {
+    let interval = setInterval(() => {
+      setCounter((counter) => counter + 1);
     }, 1000);
-  }
-  render() {
-    return <h1>Counter: {this.state.count}</h1>;
-  }
+
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 10000);
+  }, []);
+
+  useEffect(() => {});
+  return <h1>Counter : {counter}</h1>;
 }
