@@ -5,12 +5,15 @@ export function Counter() {
     let interval = setInterval(() => {
       setCounter((counter) => counter + 1);
     }, 1000);
-
-    setTimeout(() => {
-      clearInterval(interval);
-    }, 10000);
+    return () => {
+      clearInterval(interval, 10000);
+    };
   }, []);
+  useEffect(() => {
+    if (counter >= 6) {
+      setCounter(0);
+    }
+  }, [counter]);
 
-  useEffect(() => {});
   return <h1>Counter : {counter}</h1>;
 }
