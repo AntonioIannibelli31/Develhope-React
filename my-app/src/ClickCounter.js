@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-export function ClickCounter(updateCounterChange) {
+export function ClickCounter({ onCounterChange = () => {} }) {
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    onCounterChange(counter);
+  }, [counter, onCounterChange]);
 
   function eventCounter() {
     setCounter((counter) => counter + 1);
   }
-
-  updateCounterChange = useEffect(() => {
-    console.log(`Counter value : ${counter}`);
-  }, [counter]);
 
   return (
     <div>
