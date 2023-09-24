@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DisplayContext } from "./DisplayContext";
 let string = {
   it: {
@@ -8,14 +8,8 @@ let string = {
     choice: "The language chosen is English",
   },
 };
-export class DisplayLanguage extends React.Component {
-  render() {
-    return (
-      <DisplayContext.Consumer>
-        {(language) => {
-          return <h1>{string[language].choice}</h1>;
-        }}
-      </DisplayContext.Consumer>
-    );
-  }
+export function DisplayLanguage() {
+  const displayContext = useContext(DisplayContext);
+
+  return <h1>{string[displayContext].choice}</h1>;
 }
