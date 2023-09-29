@@ -3,11 +3,12 @@ import { Routes, Route, Link } from "react-router-dom";
 import { ShowGithubUser } from "./ShowGithubUser";
 import { Counter } from "./Counter";
 import { Input } from "./Input";
+import { PageNotFound } from "./PageNotFound";
 export class App extends React.Component {
   render() {
     return (
       <div>
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/counter">counter</Link>
           </li>
@@ -17,11 +18,12 @@ export class App extends React.Component {
           <li>
             <Link to="input">Input</Link>
           </li>
-        </ul>
+        </ul> */}
         <Routes>
           <Route path="/:name" element={<ShowGithubUser />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/input" element={<Input />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     );
