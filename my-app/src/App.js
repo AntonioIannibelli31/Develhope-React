@@ -1,30 +1,15 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { ShowGithubUser } from "./ShowGithubUser";
-import { Counter } from "./Counter";
-import { Input } from "./Input";
-import { GitHubUserList } from "./GithubUserList";
 export class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <ul>
-          <li>
-            <Link to="/counter">counter</Link>
-          </li>
-          <li>
-            <Link to="/AntonioIannibelli31">Username</Link>
-          </li>
-          <li>
-            <Link to="input">Input</Link>
-          </li>
-        </ul> */}
+        <Link to="/users"> ShowGithubUser </Link>
+        <Link to="/"> Home</Link>
         <Routes>
-          {/* <Route path="/counter" element={<Counter />} />
-          <Route path="/input" element={<Input />} /> */}
-          {/* <Route path="*" element={<PageNotFound />} /> */}
-          <Route path="/" element={<GitHubUserList />}>
-            <Route path="/:name" element={<ShowGithubUser />} />
+          <Route path="/users" element={<ShowGithubUser />}>
+            <Route index element={<p>Aggiungi un utente e selezionalo</p>} />
           </Route>
         </Routes>
       </div>
