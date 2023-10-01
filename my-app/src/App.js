@@ -5,11 +5,9 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/users"> ShowGithubUser </Link>
+        <Link to={"/users"}>Users:</Link>
         <Routes>
-          <Route path="/users" element={<ShowGithubUser />}>
-            <Route index element={<p>Selezionare un utente</p>} />
-          </Route>
+          <Route path="/users" element={<ShowGithubUser />} />
         </Routes>
       </div>
     );
