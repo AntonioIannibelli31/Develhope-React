@@ -10,7 +10,9 @@ export function GitHubUser({ username }) {
   }, [username]);
   return (
     <div>
+      <h1>Welcome</h1>
       {user && <h1>{user.login}</h1>}
+      <h1>Your id is:</h1>
       {user && <h2>{user.id}</h2>}
     </div>
   );
