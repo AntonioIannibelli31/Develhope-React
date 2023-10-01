@@ -6,10 +6,9 @@ export class App extends React.Component {
     return (
       <div>
         <Link to="/users"> ShowGithubUser </Link>
-        <Link to="/"> Home</Link>
         <Routes>
           <Route path="/users" element={<ShowGithubUser />}>
-            <Route index element={<p>Aggiungi un utente e selezionalo</p>} />
+            <Route index element={<p>Selezionare un utente</p>} />
           </Route>
         </Routes>
       </div>
