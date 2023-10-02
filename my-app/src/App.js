@@ -1,15 +1,13 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { ShowGithubUser } from "./ShowGithubUser";
-export class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Link to={"/users"}>Users:</Link>
-        <Routes>
-          <Route path="/users" element={<ShowGithubUser />} />
-        </Routes>
-      </div>
-    );
-  }
+import { Routes, Route } from "react-router-dom";
+import { GithubUser } from "./GithubUser";
+
+export function App() {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<GithubUser />} />
+      </Routes>
+    </div>
+  );
 }

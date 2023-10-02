@@ -1,5 +1,6 @@
-import ReactDOM from "react-dom";
+import ReactDom from "react-dom";
 import { Root } from "./Root";
-const root = document.getElementById("root");
 
-ReactDOM.render(<Root />, root);
+const root = document.querySelector("#root");
+
+ReactDom.render(<Root />, root);
