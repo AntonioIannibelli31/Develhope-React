@@ -1,7 +1,9 @@
 import { useGithubUser } from "./GithubUserHook";
 
 export function GithubUser(username) {
-  const { data, error } = useGithubUser((username = "AntonioIannibelli31"));
+  const { data, error, handleRefresh } = useGithubUser(
+    (username = "AntonioIannibelli31")
+  );
 
   return (
     <div>
@@ -10,6 +12,7 @@ export function GithubUser(username) {
         <div>
           <h1> {data.login}</h1>
           <h1>{data.id}</h1>
+          <button onClick={handleRefresh}>Refresh</button>
         </div>
       )}
     </div>
