@@ -4,10 +4,9 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function useGithubUser(username) {
   const { data, error } = useSWR(
-    `https://api.github.com/users/${username}`,
+    username !== null && `https://api.github.com/users/${username}`,
     fetcher
   );
-
   return {
     data,
     error,
