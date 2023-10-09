@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ShowGithubUser } from "./ShowGithubUser";
 import { Counter } from "./Counter";
 import { Input } from "./Input";
@@ -20,7 +20,7 @@ export class App extends React.Component {
           </li>
         </ul> */}
         <Routes>
-          <Route path="/:name" element={<ShowGithubUser />} />
+          <Route path="/name" element={<ShowGithubUser />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/input" element={<Input />} />
           <Route path="*" element={<PageNotFound />} />
