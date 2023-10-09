@@ -19,9 +19,6 @@ export function ShowGithubUser({
 
   return (
     <div>
-      <Routes>
-        <Route index element={<p>Selezionare un utente</p>} />
-      </Routes>
       <ul>
         {usernames.map((username, index) => (
           <li key={index}>
