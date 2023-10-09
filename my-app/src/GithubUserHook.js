@@ -7,13 +7,13 @@ export function GitHubUserHook(username) {
     fetch(`https://api.github.com/users/${username}`)
       .then((res) => res.json())
       .then((username) => setUser(username))
-      .catch((err) => {
-        setError(err);
-        setUserData(null);
+      .catch((error) => {
+        setError(error);
+        setUser(null);
       });
   }, [username]);
   return {
     user: user,
-    err: err,
+    error: error,
   };
 }
